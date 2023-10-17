@@ -20,9 +20,9 @@ ByteBooks é um projeto desenvolvido com React, TypeScript, Tailwind, Vite, Reac
 3. Execute `npm run dev` para iniciar o servidor de desenvolvimento
 4. Abra o navegador e acesse `http://localhost:5173`
 
-## Contribuição
+## Personalize seu projeto!
 
-Este projeto é para fins de estudo, então me envie um e-mail me contando o que você está fazendo e por que está fazendo, me ensine o que você sabe. Todos os tipos de contribuições são muito bem-vindos e apreciados!
+Este projeto é para fins de estudo, estamos utilizando a temática de livros como exemplo. Que tal deixar esse projeto a sua cara? Personalize o projeto e compartilha com a gente ;)
 
 ## Licença
 
