@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
-import BooksList from '../pages/BooksList';
+import Catalog from '../pages/Catalog';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <BooksList />,
+		element: <Catalog />,
 	},
 ]);
 

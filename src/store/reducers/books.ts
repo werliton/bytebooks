@@ -27,7 +27,7 @@ const initialState: BooksState = {
 
 const fetchBooks = createAsyncThunk('books/fetchItems', async () => {
 	const response: Book[] = await fetch(
-		'https://raw.githubusercontent.com/alura-cursos/bytebooks-assets/main/data.json'
+		'https://raw.githubusercontent.com/cicatriz-dev/bytebooks-assets/main/data.json'
 	)
 		.then((res) => res.json())
 		.then(sleep(1500));
