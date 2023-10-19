@@ -7,7 +7,7 @@ import { fetchBooks, filterItems } from '../../store/reducers/books';
 import { AppDispatch, RootState } from '../../store/store';
 import { Footer } from '../../components/Footer';
 
-const BooksList: React.FC = () => {
+const Catalog: React.FC = () => {
 	const dispatch = useDispatch<AppDispatch>();
 	const [filterInput, setFilterInput] = React.useState('');
 	const { books, filteredBooks, isLoading } = useSelector((state: RootState) => state.books);
@@ -47,7 +47,14 @@ const BooksList: React.FC = () => {
 					<React.Fragment>
 						{!filteredBooks?.length && filterInput.length > 0 ? (
 							<div className='flex-1 items-center mt-4'>
-								<h2 className='text-center'>Nenhum resultado encontrado :(</h2>
+								<h2 className='text-center text-[#002F52] text-[32px]'>
+									Oops! Não encontramos nenhum resultado.
+								</h2>
+								<img
+									src='/not_found.png'
+									alt='sem resultado'
+									className='w-1/2 max-w-[500px] mx-auto mt-4'
+								/>
 							</div>
 						) : (
 							<PageContent>
@@ -74,4 +81,4 @@ const BooksList: React.FC = () => {
 	);
 };
 
-export default BooksList;
+export default Catalog;
