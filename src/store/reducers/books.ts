@@ -43,11 +43,11 @@ export const booksSlice = createSlice({
 				item.title.toLowerCase().includes(action.payload.toLowerCase())
 			);
 		},
-		getBookById: (state, action) => {
-			state.selectedBook = state.books.find((item) => item.id === action.payload);
-		},
 		clearSelectedBook: (state) => {
 			state.selectedBook = undefined;
+		},
+		setSelectedBook: (state, action) => {
+			state.selectedBook = action.payload;
 		},
 	},
 	extraReducers: (builder) => {
@@ -66,7 +66,7 @@ export const booksSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 
-export const { filterItems } = booksSlice.actions;
+export const { filterItems, setSelectedBook } = booksSlice.actions;
 
 export { fetchBooks };
 

@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import Header from '../../components/Header';
 import PageContent from '../../components/PageContent';
 import PageSection from '../../components/PageSection';
 import React, { Suspense, lazy, useEffect, useMemo } from 'react';
 import { fetchBooks } from '../../store/reducers/books';
 import { AppDispatch, RootState } from '../../store/store';
-import { Footer } from '../../components/Footer';
 import { resolvePromise } from '../../utils';
 
 const BooksList = lazy(() => resolvePromise(import('../../components/BooksList')));
@@ -15,19 +13,11 @@ const Catalog: React.FC = () => {
 	const [filterInput, setFilterInput] = React.useState('');
 	const { books } = useSelector((state: RootState) => state.books);
 
-	const CatalogHeader = useMemo(
-		() => (
-			<Header>
-				<img alt='ByteBooks Logo' src='./logo.webp' height={70} />
-			</Header>
-		),
-		[]
-	);
-
-	const showingItems =
-		filterInput.length > 0
+	const showingItems = useMemo(() => {
+		return filterInput.length > 0
 			? books.filter((book) => book.title.toLowerCase().includes(filterInput))
 			: books;
+	}, [books, filterInput]);
 
 	useEffect(() => {
 		dispatch(fetchBooks());
@@ -40,8 +30,7 @@ const Catalog: React.FC = () => {
 	return (
 		<React.Fragment>
 			<React.Fragment>
-				{CatalogHeader}
-				<PageSection>
+				<PageSection isCatalog>
 					<h2 className='text-4xl text-white font-bold'>Já sabe por onde começar?</h2>
 					<h3 className='text-base text-white font-bold mt-4'>
 						Encontre em nossa estante o que precisa para seu desenvolvimento!
@@ -76,7 +65,6 @@ const Catalog: React.FC = () => {
 							</div>
 						</PageContent>
 					)}
-					<Footer />
 				</React.Fragment>
 			</React.Fragment>
 		</React.Fragment>
