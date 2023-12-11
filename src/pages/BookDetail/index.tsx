@@ -12,7 +12,7 @@ const BookDetail = () => {
 		state: { selectedBook },
 	} = useBooks();
 	const {
-		actions: { addToCart },
+		actions: { addToCart, setIsCartOpen },
 	} = useCart();
 	const [quantity, setQuantity] = useState(1);
 	const quantityWithZero = quantity < 10 ? `0${quantity}` : quantity;
@@ -47,9 +47,10 @@ const BookDetail = () => {
 								<div className='mt-6'>
 									<button
 										className='bg-[#EB9B00] w-full md:w-36 hover:opacity-60'
-										onClick={() =>
-											addToCart({ ...selectedBook, quantity, price: selectedBook?.prices.ebook })
-										}
+										onClick={() => {
+											addToCart({ ...selectedBook, quantity, price: selectedBook?.prices.ebook });
+											setIsCartOpen(true);
+										}}
 									>
 										<p className='text-white text-xl font-bold p-4'>Comprar</p>
 									</button>
