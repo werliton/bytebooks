@@ -1,7 +1,26 @@
+import { useEffect, useState } from 'react';
 import PageSection from '../../components/PageSection';
+import { useCart } from '../../store/contexts/cart';
+import { useHistory } from 'react-router-dom';
 
 const Order = () => {
-	const isLoading = true;
+	const navigation = useHistory();
+	const [isLoading, setIsLoading] = useState(true);
+	const {
+		state: { books },
+		actions: { resetCart },
+	} = useCart();
+
+	useEffect(() => {
+		if (books.length) {
+			setTimeout(() => {
+				setIsLoading(false);
+				resetCart();
+			}, 3000);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [books]);
+
 	return (
 		<>
 			<PageSection>
@@ -11,7 +30,18 @@ const Order = () => {
 				{isLoading ? (
 					<img src='/loading.gif' alt='carregando' width={200} />
 				) : (
-					<img src='/pedido_confirmado.webp' alt='pedido confirmado' />
+					<div className='flex-row justify-center'>
+						<h2 className='text-lg font-semibold'>
+							Tudo certo com seu pedido! Agradecemos pela compra
+						</h2>
+						<img src='/pedido_confirmado.webp' alt='pedido confirmado' />
+						<button
+							className='w-full rounded-lg py-3 bg-[#EB9B00] text-white font-bold mt-4'
+							onClick={() => navigation.push('/')}
+						>
+							Voltar ao inicio
+						</button>
+					</div>
 				)}
 			</div>
 		</>
