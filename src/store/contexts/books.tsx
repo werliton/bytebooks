@@ -74,10 +74,11 @@ const BooksProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
 			await sleep(1500);
 
-			setState({
+			setState((prev) => ({
+				...prev,
 				books: response,
 				isLoading: false,
-			});
+			}));
 		} catch (error) {
 			setState((prev) => ({
 				...prev,
