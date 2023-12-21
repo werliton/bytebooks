@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import sleep from 'sleep-promise';
+import { errorLog } from '../../utils';
 
 export type Book = {
 	id: number;
@@ -80,6 +81,7 @@ const BooksProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 				isLoading: false,
 			}));
 		} catch (error) {
+			errorLog(new Error('Erro ao buscar os livros'));
 			setState((prev) => ({
 				...prev,
 				isLoading: false,
