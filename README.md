@@ -1,4 +1,4 @@
-![thumb-react-google-lighthouse](./alura-react-google-lighthouse.png)
+![thumb-react-vite-new-relic](./alura-react-vite-new-relic.png)
 
 # ByteBooks
 
@@ -15,6 +15,8 @@ O ByteBooks apresenta um catálogo de livros de tecnologia, com função de busc
 Para a implementação do projeto foram utilizadas as seguintes técnicas e tecnologias:
 
 - React
+  - Vite
+  - SSR
 - TypeScript
 - Tailwind
 - Identificação de problemas de perfomance
@@ -32,6 +34,8 @@ Para a implementação do projeto foram utilizadas as seguintes técnicas e tecn
   - Formatos de imagem modernos (.webp, .avif)
   - Propriedade loading da tag <img>
   - Propriedade font-swap
+- Observabilidade com New Relic
+- Automatização de esteira com GitHub Actions e Lighthouse
 
 ## 📁 Acesso ao projeto
 
@@ -47,4 +51,4 @@ Agora vá até seu navegador e acesse http://localhost:5173/ ou o link que o ter
 
 ## 📚 Mais informações do curso
 
-Gostou do projeto e quer aprender como implementá-lo? Você pode [acessar o curso de React: identificando problemas de perfomance com o Google Lighthouse](https://www.alura.com.br/TBD).
+Gostou do projeto e quer aprender como implementá-lo? Você pode [acessar o curso de React Vite: Monitorando aplicações com New Relic](https://cursos.alura.com.br/course/react-observabilidade-2).
