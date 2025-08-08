@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ByteBooks</title>
 
-    <script>
-      window.__NEW_RELIC_ENV__ = <!--new-relic-env-->
-    </script>
-
     <script type="text/javascript">
       window.NREUM || (NREUM = {});
       NREUM.init = {
@@ -18,8 +14,20 @@
         ajax: { deny_list: ["bam.nr-data.net"] },
       };
 
-      // NREUM.loader_config e NREUM.info serão definidos dinamicamente via React ou script usando variáveis de ambiente
-      /*! For license information please see nr-loader-spa-1.294.0.min.js.LICENSE.txt */
+      NREUM.loader_config = {
+        accountID: "6985944",
+        trustKey: "6985944",
+        agentID: "601574634",
+        licenseKey: "NRJS-2a5d1359b1ea32a0fe9",
+        applicationID: "601574634",
+      };
+      NREUM.info = {
+        beacon: "bam.nr-data.net",
+        errorBeacon: "bam.nr-data.net",
+        licenseKey: "NRJS-2a5d1359b1ea32a0fe9",
+        applicationID: "601574634",
+        sa: 1,
+      }; /*! For license information please see nr-loader-spa-1.294.0.min.js.LICENSE.txt */
       (() => {
         var e,
           t,
