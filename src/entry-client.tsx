@@ -1,13 +1,15 @@
-import './index.css';
-import '@fontsource/poppins';
-import '@fontsource/poppins/700.css';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Routes } from './routes';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import "./index.css";
+import "@fontsource/poppins";
+import "@fontsource/poppins/700.css";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Routes } from "./routes";
+import "./utils/nr-env";
 
 ReactDOM.hydrateRoot(
-	document.getElementById('root') as HTMLElement,
-	<Router>
-		<Routes />
-	</Router>
+  document.getElementById("root") as HTMLElement,
+  <Router>
+    <Routes />
+  </Router>
 );

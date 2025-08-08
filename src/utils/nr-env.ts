@@ -15,25 +15,23 @@ export interface NreumInfo {
   applicationID: string;
   sa: number;
 }
-
-// @ts-ignore
-if (typeof window !== "undefined") {
-  // @ts-ignore
+/** @ts-ignore */
+if (typeof window !== "undefined" && window.__NEW_RELIC_ENV__) {
+  /** @ts-ignore */
+  const env = window.__NEW_RELIC_ENV__;
   window.NREUM = window.NREUM || {};
-  // @ts-ignore
   window.NREUM.loader_config = {
-    accountID: import.meta.env.VITE_NR_ACCOUNT_ID,
-    trustKey: import.meta.env.VITE_NR_TRUST_KEY,
-    agentID: import.meta.env.VITE_NR_AGENT_ID,
-    licenseKey: import.meta.env.VITE_NR_LICENSE_KEY,
-    applicationID: import.meta.env.VITE_NR_APPLICATION_ID,
-  } as NreumLoaderConfig;
-  // @ts-ignore
+    accountID: env.VITE_NR_ACCOUNT_ID,
+    trustKey: env.VITE_NR_TRUST_KEY,
+    agentID: env.VITE_NR_AGENT_ID,
+    licenseKey: env.VITE_NR_LICENSE_KEY,
+    applicationID: env.VITE_NR_APPLICATION_ID,
+  };
   window.NREUM.info = {
-    beacon: import.meta.env.VITE_NR_BEACON,
-    errorBeacon: import.meta.env.VITE_NR_ERROR_BEACON,
-    licenseKey: import.meta.env.VITE_NR_LICENSE_KEY,
-    applicationID: import.meta.env.VITE_NR_APPLICATION_ID,
+    beacon: env.VITE_NR_BEACON,
+    errorBeacon: env.VITE_NR_ERROR_BEACON,
+    licenseKey: env.VITE_NR_LICENSE_KEY,
+    applicationID: env.VITE_NR_APPLICATION_ID,
     sa: 1,
-  } as NreumInfo;
+  };
 }
