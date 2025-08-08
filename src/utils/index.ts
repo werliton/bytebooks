@@ -10,7 +10,7 @@ export async function resolvePromise<T>(promise: Promise<T>): Promise<T> {
 type ErrorLogFunction = (error: Error, errorInfo?: ErrorInfo) => void;
 
 export const errorLog: ErrorLogFunction = (error, errorInfo) => {
-  console.error("Erro capturado", error);
+  console.error("Erro capturado: ", error);
 
   if (errorInfo) {
     console.error("Informações adicionais: ", errorInfo);
